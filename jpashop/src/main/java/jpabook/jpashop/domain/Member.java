@@ -26,6 +26,9 @@ public class Member {
     @Embedded // 내장 타입이 내장되었다는 의미
     private Address address;
 
-    @OneToMany(mappedBy = "member") // Member 테이블 입장에서 Orders 테이블은 일대다 관계이다.
+    // Member 테이블 입장에서 Orders 테이블은 일대다 관계이다.
+    // Order 테이블에 있는 member 필드 값에 의해서 매핑 된다는 의미
+    // 즉, 맴버와 주문 사이의 연관 관계 주인은 주문 테이블이 된다.
+    @OneToMany(mappedBy = "member")
     private List<Order> orders = new ArrayList<>();
 }

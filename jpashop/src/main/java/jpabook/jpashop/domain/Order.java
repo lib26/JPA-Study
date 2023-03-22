@@ -19,13 +19,22 @@ public class Order {
     @Column(name = "order_id")
     private Long id;
 
+    /**
+     * Member
+     */
     @ManyToOne(fetch = FetchType.LAZY) // orders 테이블 입장에서는 member 테이블과 다대일 관계이다
     @JoinColumn(name = "member_id") // FK 이름 매핑
     private Member member; //주문 회원
 
+    /**
+     * OrderItem
+     */
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
     private List<OrderItem> orderItems = new ArrayList<>();
 
+    /**
+     * Delivery
+     */
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "delivery_id")
     private Delivery delivery; //배송정보

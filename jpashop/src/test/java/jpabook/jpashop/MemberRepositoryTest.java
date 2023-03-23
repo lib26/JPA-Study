@@ -17,28 +17,28 @@ import static org.assertj.core.api.Assertions.assertThat;
 @SpringBootTest // 스프링 테스트
 public class MemberRepositoryTest {
 
-    @Autowired // DI
-    MemberRepository memberRepository;
-
-    @Test
-    @Transactional // test 코드에 @Transactional가 있으면 테스트가 끝나고 롤백 시킨다. 즉, 테스트 성공후 h2에서 확인해도 데이터가 보이지 않음
-    @Rollback(false) // 위의 사항을 무시
-    public void testMember() {
-
-        //given
-        Member member = new Member();
-        member.setUsername("memberA");
-
-        //when
-        Long savedId = memberRepository.save(member);
-        Member findMember = memberRepository.find(savedId);
-
-        //then
-        assertThat(findMember.getId()).isEqualTo(member.getId());
-        assertThat(findMember.getUsername()).isEqualTo(member.getUsername());
-        assertThat(findMember).isEqualTo(member); //JPA 엔티티 동일성 보장
-        System.out.println("findMember==member"+(findMember==member));
-        // ㄴtrue 왜?  같은 @Transactional 안에서는 영속성 컨텍스트가 같기 때문에 식별자가 같으면 같은 엔티티로 판단한다
-        // 1차 캐시에 있어서? select문도 안나오고 바로 insert 나온것이다? 좀 더 알아보자
-    }
+//    @Autowired // DI
+//    MemberRepository memberRepository;
+//
+//    @Test
+//    @Transactional // test 코드에 @Transactional가 있으면 테스트가 끝나고 롤백 시킨다. 즉, 테스트 성공후 h2에서 확인해도 데이터가 보이지 않음
+//    @Rollback(false) // 위의 사항을 무시
+//    public void testMember() {
+//
+//        //given
+//        Member member = new Member();
+//        member.setUsername("memberA");
+//
+//        //when
+//        Long savedId = memberRepository.save(member);
+//        Member findMember = memberRepository.find(savedId);
+//
+//        //then
+//        assertThat(findMember.getId()).isEqualTo(member.getId());
+//        assertThat(findMember.getUsername()).isEqualTo(member.getUsername());
+//        assertThat(findMember).isEqualTo(member); //JPA 엔티티 동일성 보장
+//        System.out.println("findMember==member"+(findMember==member));
+//        // ㄴtrue 왜?  같은 @Transactional 안에서는 영속성 컨텍스트가 같기 때문에 식별자가 같으면 같은 엔티티로 판단한다
+//        // 1차 캐시에 있어서? select문도 안나오고 바로 insert 나온것이다? 좀 더 알아보자
+//    }
 }

@@ -44,7 +44,8 @@ public class Order {
     @Enumerated(EnumType.STRING)
     private OrderStatus status; //주문상태 [ORDER, CANCEL]
 
-    //==연관관계 메서드==//
+    //==연관관계 편의성 메서드==//
+    // 양방향 연관관계 매핑일 때 이 편의성 메서드는 주로 컨트롤 하는 쪽에 두는 것이 좋다
     public void setMember(Member member) {
         this.member = member;
         member.getOrders().add(this);

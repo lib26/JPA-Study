@@ -12,7 +12,8 @@ import java.util.List;
 @RequiredArgsConstructor // 생성자 DI. 그중에서도 final이 붙은 필드 값을 주입해준다
 public class MemberRepository {
 
-    // @PersistenceContext // 매니저 DI. 필드 Injection
+    // @PersistenceContext는 필드에서 엔티티 매니저 Injection을 해준다.
+    // 하지만 Spring Data JPA에서 엔티티 매니저까지 @RequiredArgsConstructor로 생성자 주입을 할 수있게 기능을 제공해준다
     private final EntityManager em;
 
     public void save(Member member) {

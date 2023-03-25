@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="78ff2c1d-c402-41a4-b72c-bb12e4e6d535" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/jpashop/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/jpashop/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jpashop/src/main/java/jpabook/jpashop/JpashopApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/jpashop/src/main/java/jpabook/jpashop/JpashopApplication.java" afterDir="false" />
-    </list>
+    <list default="true" id="78ff2c1d-c402-41a4-b72c-bb12e4e6d535" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -106,7 +103,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/jpashop" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -150,6 +147,7 @@
       <updated>1679155198209</updated>
       <workItem from="1679155199339" duration="6569000" />
       <workItem from="1679199543385" duration="1298000" />
+      <workItem from="1679453577817" duration="36000" />
     </task>
     <servers />
   </component>

@@ -70,8 +70,8 @@ public class Order {
         for (OrderItem orderItem : orderItems) {
             order.addOrderItem(orderItem);
         }
-        order.setStatus(OrderStatus.ORDER); // 주문 생성시 ORDER 상태 설정
         order.setOrderDate(LocalDateTime.now());
+        order.setStatus(OrderStatus.ORDER); // 주문 생성시 ORDER 상태 설정
         return order;
     }
 

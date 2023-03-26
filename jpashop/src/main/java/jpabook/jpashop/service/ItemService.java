@@ -34,9 +34,13 @@ public class ItemService {
      */
     @Transactional
     public void updateItem(Long id, String name, int price, int stockQuantity) {
-        Item item = itemRepository.findOne(id);
+        Item item = itemRepository.findOne(id); // 영속 상태인 엔티티를 가져온다.
         item.setName(name);
         item.setPrice(price);
         item.setStockQuantity(stockQuantity);
+        // 트랜젝션 commit 되면 변경 감지로 DB에 update 쿼리가 날라간다.
+
+        // item.change(name, price, stockQuantity)
+        // 그리고 이렇게 setter를 사용하는 것보단 엔티티에 비즈니스 메서드를 만들어서 사용하자
     }
 }

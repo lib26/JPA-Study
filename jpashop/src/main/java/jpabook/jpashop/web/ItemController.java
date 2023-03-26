@@ -31,7 +31,7 @@ public class ItemController {
         book.setAuthor(form.getAuthor());
         book.setIsbn(form.getIsbn());
 
-        itemService.save(book);
+        itemService.saveItem(book); // saveItem은 persist 혹은 merge를 한다
         return "redirect:/items";
     }
 
@@ -65,9 +65,11 @@ public class ItemController {
     }
 
     /**
-     * 상품 수정
+     * 상품 수정 -> merge
+     * merge는 비영속 상태인 엔티티의 변경된 값을 영속 상태인 엔티티에 밀어 넣는다.
+     * 즉, 비영속으로 넘어온 엔티티의 식별값을 통해서 기존 영속 상태인 엔티티를 가져온 뒤 변경된 비영속 엔티티의 값으로 merge
      */
-    @PostMapping(value = "/items/{itemId}/edit")
+    //@PostMapping(value = "/items/{itemId}/edit")
     public String updateItem(@ModelAttribute("form") BookForm form) {
 
         Book book = new Book(); // 이 인스턴스는 준영속 상태이다. 즉, 영속성 컨텍스트가 관리하지 않는 엔티티다.
@@ -78,7 +80,18 @@ public class ItemController {
         book.setAuthor(form.getAuthor());
         book.setIsbn(form.getIsbn());
 
-        itemService.save(book);
+        itemService.saveItem(book); // saveItem은 persist 혹은 merge를 한다
+        return "redirect:/items";
+    }
+
+    /**
+     * 권장 코드
+     * 상품 수정 -> 변경 감지
+     */
+    @PostMapping(value = "/items/{itemId}/edit")
+    public String updateItem(@PathVariable Long itemId, @ModelAttribute("form") BookForm form) {
+
+        itemService.updateItem(itemId, form.getName(), form.getPrice(), form.getStockQuantity());
         return "redirect:/items";
     }
 }

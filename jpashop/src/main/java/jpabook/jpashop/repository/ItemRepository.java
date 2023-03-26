@@ -19,6 +19,10 @@ public class ItemRepository {
             em.persist(item);
         } else {
             em.merge(item); // 이미 있던 아이템 수정
+            /**
+             * merge는 비영속 상태인 엔티티의 변경된 값을 영속 상태인 엔티티에 밀어 넣는다.
+             * 즉, 비영속으로 넘어온 엔티티의 식별값을 통해서 기존 영속 상태인 엔티티를 가져온 뒤 변경된 비영속 엔티티의 값으로 merge
+             */
         }
     }
 

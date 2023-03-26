@@ -17,8 +17,8 @@ public class ItemService {
     private final ItemRepository itemRepository;
 
     @Transactional // 변경
-    public void save(Item item) {
-        itemRepository.save(item);
+    public void saveItem(Item item) {
+        itemRepository.save(item);  // save은 persist 혹은 merge를 한다
     }
 
     public List<Item> findItems() {
@@ -29,4 +29,14 @@ public class ItemService {
         return itemRepository.findOne(itemId);
     }
 
+    /**
+     * 영속성 컨텍스트가 자동 변경.
+     */
+    @Transactional
+    public void updateItem(Long id, String name, int price, int stockQuantity) {
+        Item item = itemRepository.findOne(id);
+        item.setName(name);
+        item.setPrice(price);
+        item.setStockQuantity(stockQuantity);
+    }
 }

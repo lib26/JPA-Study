@@ -21,7 +21,7 @@ public class MemberController {
     // member 추가 Form 화면
     @GetMapping(value = "/members/new")
     public String createForm(Model model) {
-        model.addAttribute("memberForm", new MemberForm());
+        model.addAttribute("memberForm", new MemberForm()); // new MemberForm()은 View에 객체 바인딩? 같은 느낌
         return "members/createMemberForm";
     }
 

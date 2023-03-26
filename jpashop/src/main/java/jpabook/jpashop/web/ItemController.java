@@ -17,7 +17,7 @@ public class ItemController {
 
     @GetMapping(value = "/items/new")
     public String createForm(Model model) {
-        model.addAttribute("form", new BookForm());
+        model.addAttribute("form", new BookForm()); // new BookForm()은 View에 객체 바인딩? 같은 느낌
         return "items/createItemForm";
     }
 
@@ -50,6 +50,8 @@ public class ItemController {
      */
     @GetMapping(value = "/items/{itemId}/edit")
     public String updateItemForm(@PathVariable("itemId") Long itemId, Model model) {
+
+        // @Transactional 밖으로 나온 item 객체는 준영속 엔티티가 된다. 따라서 변경 감지가 안된다.
         Book item = (Book) itemService.findOne(itemId);
 
         BookForm form = new BookForm();
@@ -60,7 +62,7 @@ public class ItemController {
         form.setAuthor(item.getAuthor());
         form.setIsbn(item.getIsbn());
 
-        model.addAttribute("form", form);
+        model.addAttribute("form", form); // 이런식으로 엔티티를 직접 넘기지 않고 dto를 넘기도록 하자
         return "items/updateItemForm";
     }
 

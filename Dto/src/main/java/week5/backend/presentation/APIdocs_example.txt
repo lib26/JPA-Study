@@ -1,0 +1,49 @@
+POST /surveys/survey-write
+
+request 예시
+{
+    "title":"1번째 설문 제목",
+    "content":[
+        {"question": "질문1"},
+        {"question": "질문2"}
+    ]
+}
+
+response 예시
+{
+    "id": 1
+}
+
+---------------------------------------
+GET /surveys/getAll
+
+response 예시
+{
+    "surveyList": [
+        {
+            "id": 1,
+            "title": "1번째 설문 제목"
+        },
+        {
+            "id": 2,
+            "title": "2번째 설문 제목"
+        }
+    ]
+}
+
+---------------------------------------
+GET /surveys/{survey-id}     ex)/surveys/1
+
+response 예시
+{
+    "id": 1,
+    "title": "1번째 설문 제목",
+    "questionList": [
+        {
+            "question": "질문1"
+        },
+        {
+            "question": "질문2"
+        }
+    ]
+}

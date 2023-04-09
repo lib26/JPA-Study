@@ -19,7 +19,9 @@ public class SurveyDetailResponseDto {
         this.id = id;
         this.title = title;
         this.questionList = questions.stream()
-                .map(question -> new QuestionDto(question.getQuestion()))
+                .map(question -> {
+                    return new QuestionDto(question.getQuestion());
+                })
                 .collect(Collectors.toList());
     }
 }

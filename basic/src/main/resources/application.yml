@@ -1,0 +1,20 @@
+# 기본 설정 파일
+spring:
+  datasource: # DB connection과 관련된 설정
+    url: jdbc:h2:tcp://localhost/~/jpashop
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+
+  jpa: # jpa관련 설정
+    hibernate:
+      ddl-auto: create # 이 옵션은 애플리케이션 실행 시점에 가지고 있던 테이블을 drop 하고, 다시 생성한다.
+    properties:
+      hibernate:
+        format_sql: true
+      # show_sql: true -> system out 이라서 쓰면 안됨
+
+logging.level:
+  org.hibernate.SQL: debug # jpa 하이버네이트가 남기는 sql 로그를 debug level로 출력
+# org.hibernate.type: trace #스프링 부트 2.x, hibernate5
+# org.hibernate.orm.jdbc.bind: trace #스프링 부트 3.x, hibernate6

@@ -32,11 +32,11 @@ public class Survey {
         this.questions = questions;
     }
 
-    public Survey(String title) {
-        this.title = title;
-    }
-
-    public void addQuestion(Question question){
-        this.questions.add(question);
-    }
+//    public Survey(String title) {
+//        this.title = title;
+//    }
+//
+//    public void addQuestion(Question question){
+//        this.questions.add(question);
+//    }
 }

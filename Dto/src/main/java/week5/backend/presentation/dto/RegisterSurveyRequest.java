@@ -19,7 +19,7 @@ public class RegisterSurveyRequest {
         this.content = content;
     }
 
-    public RegisterSurveyRequestDto toServiceEntity() {
+    public RegisterSurveyRequestDto toServiceDto() {
         return new RegisterSurveyRequestDto(title, content);
     }
 }

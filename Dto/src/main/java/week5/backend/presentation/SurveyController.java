@@ -17,7 +17,7 @@ public class SurveyController {
 
     @PostMapping("/surveys/survey-write")
     public RegisterSurveyResponseDto registerSurvey(@RequestBody RegisterSurveyRequest request){
-        RegisterSurveyResponseDto response = surveyService.registerSurvey(request.toServiceEntity());
+        RegisterSurveyResponseDto response = surveyService.registerSurvey(request.toServiceDto());
         return response;
     }
 

@@ -1,4 +1,4 @@
-package week5.backend.application.dto;
+package week5.backend.application.dto.설문리스트조회;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -13,8 +13,8 @@ public class SurveyListResponseDto {
 
     List<SurveyResponseDto> surveyList;
 
-    public SurveyListResponseDto(List<Survey> allSurvey) {
-        this.surveyList = allSurvey.stream()
+    public SurveyListResponseDto(List<Survey> Surveys) {
+        this.surveyList = Surveys.stream()
                 .map(survey -> new SurveyResponseDto(survey.getId(), survey.getTitle()))
                 .collect(Collectors.toList());
     }

@@ -7,6 +7,6 @@ import java.util.Optional;
 
 public interface SurveyRepository extends JpaRepository<Survey, Long> {
 
-    @Query("Select s from Survey  s where s.id = :id")
+    @Query("Select s from Survey s where s.id = :id")
     Optional<Survey> findById(Long id);
 }

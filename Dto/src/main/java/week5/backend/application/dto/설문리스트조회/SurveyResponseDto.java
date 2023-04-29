@@ -1,4 +1,4 @@
-package week5.backend.application.dto;
+package week5.backend.application.dto.설문리스트조회;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

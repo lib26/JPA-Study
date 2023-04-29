@@ -3,7 +3,7 @@ POST /surveys/survey-write
 request 예시
 {
     "title":"1번째 설문 제목",
-    "content":[
+    "questions":[
         {"question": "질문1"},
         {"question": "질문2"}
     ]

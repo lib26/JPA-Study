@@ -1,4 +1,4 @@
-package week5.backend.application.dto;
+package week5.backend.application.dto.설문개별조회;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -13,15 +13,13 @@ public class SurveyDetailResponseDto {
 
     private Long id;
     private String title;
-    private List<QuestionDto> questionList;
+    private List<QuestionDetailResponseDto> questionList;
 
     public SurveyDetailResponseDto(Long id, String title, List<Question> questions) {
         this.id = id;
         this.title = title;
         this.questionList = questions.stream()
-                .map(question -> {
-                    return new QuestionDto(question.getQuestion());
-                })
+                .map(question -> new QuestionDetailResponseDto(question.getQuestion()))
                 .collect(Collectors.toList());
     }
 }

@@ -1,35 +1,46 @@
 package week5.backend.presentation;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import week5.backend.application.SurveyService;
-import week5.backend.application.dto.RegisterSurveyResponseDto;
-import week5.backend.application.dto.SurveyDetailResponseDto;
-import week5.backend.application.dto.SurveyListResponseDto;
-import week5.backend.application.dto.SurveyResponseDto;
+import week5.backend.application.dto.설문등록.RegisterSurveyResponseDto;
+import week5.backend.application.dto.설문개별조회.SurveyDetailResponseDto;
+import week5.backend.application.dto.설문리스트조회.SurveyListResponseDto;
 import week5.backend.presentation.dto.RegisterSurveyRequest;
 
 @RestController
+@RequestMapping("/surveys")
 @RequiredArgsConstructor
 public class SurveyController {
 
     public final SurveyService surveyService;
 
-    @PostMapping("/surveys/survey-write")
-    public RegisterSurveyResponseDto registerSurvey(@RequestBody RegisterSurveyRequest request){
+    /**
+     * 설문 등록 Controller
+     */
+    @PostMapping("/survey-write")
+    public ResponseEntity registerSurvey(@RequestBody RegisterSurveyRequest request){
         RegisterSurveyResponseDto response = surveyService.registerSurvey(request.toServiceDto());
-        return response;
+        return new ResponseEntity(response, HttpStatus.OK);
     }
 
-    @GetMapping("/surveys/getAll")
-    public SurveyListResponseDto surveyList(){
+    /**
+     * 설문 목록 조회 Controller
+     */
+    @GetMapping("/getAll")
+    public ResponseEntity surveyList(){
         SurveyListResponseDto response = surveyService.getAllSurveys();
-        return response;
+        return new ResponseEntity(response, HttpStatus.OK);
     }
 
-    @GetMapping("/surveys/{surveyId}")
-    public SurveyDetailResponseDto surveyDetail(@PathVariable Long surveyId){
+    /**
+     * 특정 설문 보기 Controller
+     */
+    @GetMapping("/{surveyId}")
+    public ResponseEntity surveyDetail(@PathVariable Long surveyId){
         SurveyDetailResponseDto response = surveyService.getSurvey(surveyId);
-        return response;
+        return new ResponseEntity(response, HttpStatus.OK);
     }
 }

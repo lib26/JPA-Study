@@ -7,7 +7,7 @@ import java.util.List;
 
 @Entity
 @Getter
-public class precipitation {
+public class Precipitation {
 
     @Id
     @GeneratedValue

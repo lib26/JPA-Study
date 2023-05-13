@@ -20,6 +20,6 @@ public class Date {
     private SubwayDay week_day; // 요일 FRI
 
     @OneToMany(mappedBy = "date", cascade = CascadeType.ALL)
-    private List<precipitation> perceptation;
+    private List<Precipitation> perceptation;
 
 }

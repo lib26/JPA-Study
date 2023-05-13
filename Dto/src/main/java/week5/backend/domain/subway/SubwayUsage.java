@@ -18,7 +18,7 @@ public class SubwayUsage {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn
-    private precipitation precipitation;
+    private Precipitation precipitation;
 
     private Integer onBoard;
 

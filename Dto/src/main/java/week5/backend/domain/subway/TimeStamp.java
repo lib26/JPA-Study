@@ -16,6 +16,6 @@ public class TimeStamp {
     private String time_stamp;
 
     @OneToMany(mappedBy = "timeStamp", cascade = CascadeType.ALL)
-    private List<precipitation> precipitation;
+    private List<Precipitation> precipitation;
 
 }

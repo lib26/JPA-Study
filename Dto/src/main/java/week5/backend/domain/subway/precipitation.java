@@ -7,7 +7,7 @@ import java.util.List;
 
 @Entity
 @Getter
-public class Perceptation {
+public class precipitation {
 
     @Id
     @GeneratedValue
@@ -21,9 +21,9 @@ public class Perceptation {
     @JoinColumn
     private TimeStamp timeStamp;
 
-    private float perceptation;
+    private float precipitation;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "perceptations")
+    @OneToMany(mappedBy = "precipitation", cascade = CascadeType.ALL)
     private List<SubwayUsage> subwayUsage;
 
 

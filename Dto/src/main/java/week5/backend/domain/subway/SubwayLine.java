@@ -13,9 +13,9 @@ public class SubwayLine {
     @GeneratedValue
     private Long id;
 
-    private String lineNumber;
+    private String lineName;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "lines")
+    @OneToMany(mappedBy = "subwayLine", cascade = CascadeType.ALL)
     private List<SubwayStation> subwayStation;
 
 }

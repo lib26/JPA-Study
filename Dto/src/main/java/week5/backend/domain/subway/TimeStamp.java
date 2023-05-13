@@ -1,8 +1,6 @@
 package week5.backend.domain.subway;
 
-import lombok.AccessLevel;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.List;
@@ -17,7 +15,7 @@ public class TimeStamp {
 
     private String time_stamp;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "timeStamp")
-    private List<Perceptation> perceptation;
+    @OneToMany(mappedBy = "timeStamp", cascade = CascadeType.ALL)
+    private List<precipitation> precipitation;
 
 }

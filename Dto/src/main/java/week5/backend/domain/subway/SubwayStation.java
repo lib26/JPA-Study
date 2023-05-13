@@ -1,8 +1,6 @@
 package week5.backend.domain.subway;
 
-import lombok.AccessLevel;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.List;
@@ -19,9 +17,9 @@ public class SubwayStation {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn
-    private SubwayLine lines;
+    private SubwayLine subwayLine;
 
-    @OneToMany(mappedBy = "stations", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "subwayStation", cascade = CascadeType.ALL)
     private List<SubwayUsage> subwayUsage;
 
 

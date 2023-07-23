@@ -1,16 +1,13 @@
 # 기본 설정 파일
 spring:
-  datasource: # DB connection과 관련된 설정
-    # url: jdbc:mysql://localhost:3306/basic
-    # username: root
-    # password:
-    url: jdbc:mysql://localhost:3306/testdb?useSSL=false&allowPublicKeyRetrieval=true
+  datasource:
+    url: jdbc:mysql://localhost:3306/jpa_basic
     username: root
-    password: admin
+    password: 1234
 
   jpa: # jpa관련 설정
     hibernate:
-      # ddl-auto: create # 이 옵션은 애플리케이션 실행 시점에 가지고 있던 테이블을 drop 하고, 다시 생성한다.
+      ddl-auto: create # 이 옵션은 애플리케이션 실행 시점에 가지고 있던 테이블을 drop 하고, 다시 생성한다.
     properties:
       hibernate:
         format_sql: true

@@ -1,8 +1,8 @@
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/Dto
+    url: jdbc:mysql://localhost:3306/dto
     username: root
-    password:
+    password: 1234
 
   jpa:
     hibernate:

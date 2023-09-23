@@ -4,7 +4,7 @@ spring:
     # Mysql
     url: jdbc:mysql://localhost:3306/jpashop
     username: root
-    password:
+    password: 1234
     #H2
     #url: jdbc:h2:tcp://localhost/~/jpashop
     #username: sa
